@@ -1,0 +1,47 @@
+<h1>Axiom Data Table</h1>
+<p *ngIf="loading">Data loading...</p>
+
+<div class="table-holder" *ngIf="!loading">
+  <table>
+    <thead>
+      <tr>
+        <td>Processes</td>
+        <td>Topics and objectives</td>
+        <td>Requirements</td>
+        <td>Risks</td>
+        <td width="200px">Controls</td>
+        <td>Reminders</td>
+        <td>Last Attest</td>
+        <td>Failures</td>
+        <td>Issues</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of tableData">
+        <td>{{data.name}}</td>
+        <td>
+          <span *ngFor="let topic of data.topics">{{topic.name}}</span>
+        </td>
+        <td>
+          <span *ngFor="let requirement of data.requirements">{{requirement.name}} </span>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let risk of data.risks">{{risk.name}} (Severity {{risk.severity}})</li>
+          </ul>
+        </td>
+        <td>{{data.controls}}</td>
+        <td>
+          <ul>
+            <li *ngFor="let reminder of data.reminders">{{reminder.name}} (Yearly)</li>
+          </ul>
+        </td>
+        <td><span *ngIf="data.lastAttestation">{{data.lastAttestation.date | date}}</span></td>
+        <td>{{data.failures}}</td>
+        <td>{{data.issues}}</td>
+        <td><span class="status">{{data.status}}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

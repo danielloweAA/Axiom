@@ -1,0 +1,50 @@
+.table-holder{
+  @media(max-width: 997px){
+    overflow-x:scroll
+  }
+}
+
+table{
+  background:#fff;
+  border-spacing: 0;
+  overflow:scroll;
+  border-collapse: collapse;
+  width:100%;
+  max-width: 100%;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+
+  td{
+    padding:12px;
+  }
+
+  thead{
+    tr{
+      background:darkcyan;
+      color:#fff;
+      box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+    }
+  }
+  
+  tbody{
+    vertical-align: top;
+
+    tr:not(:last-child){
+      border-bottom:1px solid #ddd;
+    }
+
+    span:not(.status){
+      margin-right:2px;
+    }
+
+    .status{
+      background:green;
+      color:#fff;
+      padding:5px 12px;
+    }
+
+    ul{
+      list-style-type: circle;
+      margin:0;
+    }
+  }
+}
